@@ -1,0 +1,71 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/placeholders';
+
+.search {
+  position: relative;
+  &__bar {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  &__input {
+    flex: 1;
+    padding: 10px 40px;
+    border: 1px solid $elements-color;
+    border-radius: 4px;
+
+    @extend %body-text;
+
+    background-image: url('../../assets/icons/search.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px;
+
+    transition:
+      background-color 0.3s,
+      border-color 0.3s;
+
+    &:focus {
+      border-color: $secondary-color;
+      outline: none;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    top: 64px;
+    left: 100;
+    width: 250px;
+    z-index: 2;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $elements-color;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &__result {
+    @extend %small-text;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  &__no-results {
+    display: none;
+    text-align: center;
+    padding: 8px;
+    color: $secondary-color;
+
+    &[data-visible='true'] {
+      display: block;
+    }
+  }
+}

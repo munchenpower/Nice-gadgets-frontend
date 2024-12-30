@@ -1,0 +1,198 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/fonts';
+
+.cart {
+  padding: 24px 16px 56px;
+  text-align: left;
+
+  @include onTablet {
+    padding: 40px 24px 64px;
+  }
+
+  @include onDesktop {
+    padding: 40px 32px 64px;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+    padding-left: 20px;
+
+    font-family: 'Mont-Regular';
+    font-size: 12px;
+    font-weight: 700;
+
+    color: $secondary-color;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+
+      background-image: url(../../assets/icons/arrow-back.svg);
+      background-size: cover;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-size: 48px;
+    font-weight: 800;
+    color: $primary-color;
+  }
+
+  &__wrapper {
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__items {
+    margin-bottom: 32px;
+    width: 100%;
+
+    @include onDesktop {
+      margin-right: 16px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 16px;
+  }
+
+  &__total {
+    padding: 24px;
+    text-align: center;
+    border: 1px solid $elements-color;
+    border-radius: 16px;
+    height: 200px;
+  }
+
+  &__price {
+    margin: 0;
+    font-family: 'Mont-Bold';
+    font-size: 32px;
+    font-weight: 800;
+    color: $primary-color;
+  }
+
+  &__amount {
+    display: block;
+    margin: auto;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+
+    font-family: 'Mont-Regular';
+    font-size: 14px;
+    font-weight: 500;
+    color: $secondary-color;
+    border-bottom: 1px solid $elements-color;
+
+    @include onDesktop {
+      width: 320px;
+    }
+  }
+
+  &__button {
+    height: 48px;
+    width: 100%;
+
+    font-family: 'Mont-Regular';
+    font-size: 14px;
+    font-weight: 700;
+    color: $white-color;
+    background-color: $accent-color;
+    border: 1px solid transparent;
+    border-radius: 48px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $accent-color;
+      color: $white-color;
+      border-color: $primary-color;
+      box-shadow: 0px 3px 13px 0px rgba(66, 68, 90, 0.3);
+    }
+
+    &:active {
+      transform: translateY(2px);
+      background-color: $white-color;
+      color: $accent-color;
+      border-color: $elements-color;
+      box-shadow: 0px 3px 13px 0px rgba(66, 68, 90, 0.3);
+    }
+
+    @include onDesktop {
+      width: 320px;
+    }
+  }
+}
+
+.empty__container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+
+  &--button {
+    font-family: 'Mont-SemiBold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 250px;
+
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+
+    border: none;
+    border-radius: 48px;
+
+    background: rgb(66, 25, 208);
+    color: #fff;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.4);
+    }
+  }
+
+  &_bottom--text {
+    margin-bottom: 4px;
+    align-items: center;
+    color: $secondary-color;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.empty__title {
+  font-size: 36px;
+  font-weight: 800;
+  color: $primary-color;
+}

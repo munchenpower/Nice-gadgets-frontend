@@ -1,0 +1,21 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.page {
+  background-color: $background-color-grey;
+
+  &__container {
+    margin: 0 auto;
+    min-height: calc(100vh - 175px);
+    padding: 24px 16px 64px 16px;
+
+    @include onTablet {
+      padding: 24px 24px 64px 24px;
+    }
+
+    @include onDesktop {
+      max-width: 1200px;
+      padding: 56px 32px 80px 32px;
+    }
+  }
+}

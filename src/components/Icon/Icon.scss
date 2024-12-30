@@ -1,0 +1,49 @@
+@import '../../styles/utils/variables';
+
+.Icon {
+  display: block;
+  border: 1px solid $icons-color;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: border $default-transition;
+  cursor: default;
+
+  &:not([class$='disabled']):hover {
+    border-color: $secondary-color;
+    cursor: pointer;
+  }
+
+  &--arrow-up {
+    background-image: url('../../assets/icons/arrow-up-default.svg');
+  }
+
+  &--arrow-up-disabled {
+    background-image: url('../../assets/icons/arrow-up-disable.svg');
+  }
+
+  &--arrow-right {
+    background-image: url('../../assets/icons/arrow-right-default.svg');
+  }
+
+  &--arrow-right-disabled {
+    background-image: url('../../assets/icons/arrow-right-disable.svg');
+  }
+
+  &--arrow-left {
+    background-image: url('../../assets/icons/arrow-right-default.svg');
+    transform: rotate(180deg);
+  }
+
+  &--arrow-left-disabled {
+    background-image: url('../../assets/icons/arrow-right-disable.svg');
+    transform: rotate(180deg);
+  }
+
+  &--like {
+    background-image: url('../../assets/icons/Favourites.svg');
+  }
+
+  &--like-filled {
+    background-image: url('../../assets/icons/Favourites-Filled-HeartLike.svg');
+  }
+}

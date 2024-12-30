@@ -1,0 +1,63 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/placeholders';
+@import '../../styles/utils/variables';
+
+.productList {
+  &__title {
+    @extend %h1;
+    color: $primary-color;
+    margin-bottom: 8px;
+  }
+
+  &__total-models {
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__buttons-block {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 40px 0;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    color: $primary-color;
+    background-color: unset;
+    font-family: 'Mont-Regular';
+    font-size: 14px;
+    line-height: 30px;
+    border: 1px solid $elements-color;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+      background-color: unset;
+      border-color: $primary-color;
+    }
+
+    &--page {
+      &--active {
+        color: $white-color;
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+
+    &--adjust {
+      &:disabled {
+        color: $elements-color;
+        &:hover {
+          border-color: $elements-color;
+          cursor: initial;
+        }
+      }
+    }
+  }
+}

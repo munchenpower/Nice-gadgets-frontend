@@ -1,0 +1,74 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/placeholders';
+@import '../../styles/utils/variables';
+
+.catalog__grid {
+  display: grid;
+  place-items: center;
+  gap: 40px;
+  justify-content: center;
+  max-width: 1200px;
+
+  @include onMobile {
+    grid-template-columns: repeat(1, 288px);
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(2, 288px);
+    grid-gap: 40px 16px;
+  }
+
+  @include onTablet-grid {
+    grid-template-columns: repeat(3, 229px);
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(4, 272px);
+    max-width: 1136px;
+  }
+}
+
+.catalog {
+  &__title {
+    @extend %h1;
+    color: $primary-color;
+    margin-bottom: 8px;
+  }
+
+  &__total-models {
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__sort {
+    display: inline-block;
+
+    @extend %small-text;
+    color: $secondary-color;
+
+    &--name {
+      font-family: 'Mont-SemiBold';
+      margin-bottom: 4px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary-color;
+    }
+  }
+}

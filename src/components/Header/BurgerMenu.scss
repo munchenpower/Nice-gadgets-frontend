@@ -1,0 +1,79 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/placeholders';
+
+.burger-menu {
+  position: relative;
+  background-color: white;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - $header-height-mobile-tablet);
+
+  &--active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    transform: translateX(0);
+
+    padding-top: 24px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__logo--image {
+    width: 64px;
+    height: 22px;
+  }
+
+  &__top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 13px 0 13px 16px;
+    box-shadow: 0 1px 0 $elements-color;
+    margin-bottom: 32px;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $elements-color;
+
+    &-button {
+      height: 64px;
+      width: 50%;
+
+      &--active::after {
+        @extend %active-class;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    text-align: center;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    transition: color 1s;
+    border-bottom: 2px solid transparent;
+    padding: 5px 0;
+  }
+}

@@ -1,0 +1,7 @@
+@import './styles/utils/mixins';
+@import './styles/utils/variables';
+
+* {
+  box-sizing: border-box;
+  color: $secondary-color;
+}

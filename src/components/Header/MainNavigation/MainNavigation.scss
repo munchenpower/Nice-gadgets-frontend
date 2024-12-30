@@ -1,0 +1,84 @@
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/mixins';
+@import '../../../styles/utils/placeholders';
+
+.nav {
+  display: none;
+
+  @include onTablet {
+    margin-right: auto;
+    display: block;
+    height: 100%;
+  }
+
+  &--burger {
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &--burger {
+      position: absolute;
+      z-index: 1;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    margin-right: 32px;
+
+    height: $header-height-mobile-tablet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &--burger {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+
+    @include onDesktop {
+      margin-right: $header-height-desktop;
+      height: 64px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: calc(($header-height-mobile-tablet - 15px) / 2) 0;
+    transition: color 1s;
+
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      padding: calc(($header-height-desktop - 15px) / 2) 0;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.is-active {
+      color: $primary-color;
+
+      &::after {
+        @extend %active-class;
+      }
+    }
+  }
+}

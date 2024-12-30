@@ -1,0 +1,43 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/placeholders';
+
+.breadcrumbs {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 24px;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}
+
+.backcrumb {
+  cursor: pointer;
+  display: block;
+
+  @extend %small-text;
+  margin-bottom: 16px;
+  color: $primary-color;
+}
+
+.product {
+  &__name {
+    color: $secondary-color;
+    @extend %small-text;
+
+    @include onMobile {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+    }
+  }
+
+  &__category {
+    color: $primary-color;
+    @extend %small-text;
+    font-weight: 700;
+  }
+}

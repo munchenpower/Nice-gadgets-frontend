@@ -1,0 +1,120 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.favorites {
+  &__link {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+    padding-left: 20px;
+
+    font-family: 'Mont-Regular';
+    font-size: 12px;
+    font-weight: 700;
+
+    color: $secondary-color;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+
+      background-image: url(../../assets/icons/arrow-back.svg);
+      background-size: cover;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-size: 48px;
+    font-weight: 800;
+    color: $primary-color;
+  }
+
+  &__quantity {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: $secondary-color;
+
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}
+
+.empty__container {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+
+  &--button {
+    font-family: 'Mont-SemiBold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 250px;
+
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+
+    border: none;
+    border-radius: 48px;
+
+    background: rgb(66, 25, 208);
+    color: #fff;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0px 3px 13px 0px rgba(23, 32, 49, 0.4);
+    }
+  }
+
+  &_bottom--text {
+    margin-bottom: 4px;
+    align-items: center;
+    color: $secondary-color;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.empty__title {
+  font-size: 36px;
+  font-weight: 800;
+  color: $primary-color;
+}
+
+.image {
+  width: 90px;
+  height: 90px;
+}

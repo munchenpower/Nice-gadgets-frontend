@@ -1,0 +1,188 @@
+@import '../../styles/utils/fonts';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/placeholders';
+
+.product {
+  &__title {
+    @extend %h2;
+    color: $primary-color;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main-image {
+    height: 288px;
+    object-fit: contain;
+    object-position: center;
+
+    @include onDesktop {
+      height: 442px;
+    }
+  }
+
+  &__colors {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    margin-bottom: 8px;
+
+    &-title {
+      @extend %product-actions-title;
+    }
+
+    &-buttons {
+      display: flex;
+      margin-bottom: 24px;
+    }
+
+    &-selector {
+      width: 32px;
+      height: 32px;
+      padding: 2px;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+      border: 2px solid white;
+      outline: 1px solid $elements-color;
+      border-radius: 50%;
+
+      transition: border-color 0.3s;
+
+      background-color: #fff;
+
+      &--is-active {
+        outline-color: $primary-color;
+      }
+
+      &:hover {
+        outline-color: $icons-color;
+      }
+    }
+  }
+
+  &__id {
+    @extend %uppercase;
+    color: $icons-color;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $elements-color;
+    margin-bottom: 24px;
+  }
+
+  &__capacity {
+    margin-bottom: 24px;
+
+    &-title {
+      margin-bottom: 8px;
+      @extend %product-actions-title;
+    }
+
+    &-button {
+      height: 32px;
+      width: 60px;
+      border: 1px solid $icons-color;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+      background-color: #fff;
+
+      @extend %buttons;
+      color: $primary-color;
+      text-align: center;
+      text-transform: uppercase;
+
+      &--is-active {
+        color: #fff;
+        border-color: $primary-color;
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  &__price {
+    display: flex;
+    margin-bottom: 16px;
+
+    &-actual {
+      text-align: left;
+      color: $primary-color;
+      @extend %h2;
+      font-size: 32px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+
+    &-full {
+      color: $secondary-color;
+      font-size: 22px;
+      font-weight: 500;
+      text-decoration: line-through;
+    }
+  }
+
+  &__buy {
+    margin-bottom: 32px;
+  }
+
+  &__short-specs {
+    margin-bottom: 56px;
+  }
+}
+
+//grid
+
+.grid {
+  display: block;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 16px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(24, 1fr);
+    column-gap: 16px;
+  }
+
+  &__item {
+    @include onTablet {
+      @for $start from 1 through $grid-column-tablet {
+        @for $end from $start through 12 {
+          &--tablet--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+
+      @include onDesktop {
+        @for $start from 1 through $grid-column-desktop {
+          @for $end from $start through 24 {
+            &--desktop--#{$start}-#{$end} {
+              grid-column: #{$start} / #{$end + 1};
+            }
+          }
+        }
+      }
+    }
+  }
+}

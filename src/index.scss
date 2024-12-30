@@ -1,0 +1,8 @@
+@import './styles/utils/fonts';
+@import './styles/utils/normalize';
+
+body {
+  font-family: 'Mont-Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

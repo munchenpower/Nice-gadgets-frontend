@@ -1,0 +1,89 @@
+@import '../../styles/utils/fonts';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/placeholders';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+.slick-initialized .slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-dots-for-small-img li {
+  width: 51.2px;
+  height: 49px;
+
+  @include onTablet {
+    width: 40px;
+    height: 40px;
+  }
+
+  @include onDesktop {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.slick-slide {
+  position: relative;
+
+  @include onTablet {
+    padding-left: 40px;
+  }
+
+  @include onDesktop {
+    padding-left: 80px;
+  }
+}
+
+ul.slick-dots-for-small-img {
+  position: absolute;
+  display: flex !important;
+  flex-direction: column;
+  gap: 8px;
+  background-color: $background-color-grey;
+  height: 100%;
+  @include onMobile {
+    margin-bottom: 40px;
+  }
+
+  @include onDesktop {
+    top: 0;
+    gap: 16px;
+  }
+
+  @include onTablet {
+    top: 0;
+    gap: 8px;
+  }
+
+  @include onMobile {
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.slick-dots-for-small-img li {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-dots-for-small-img .slick-active {
+  border: 1px solid $primary-color;
+}
+
+.slick-list {
+  margin-bottom: 16px;
+  height: 288px;
+}
+
+.slick-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border: 1px solid $elements-color;
+  border-radius: 4px;
+  padding: 5px;
+}

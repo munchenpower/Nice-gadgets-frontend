@@ -1,0 +1,146 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/fonts';
+@import '../../styles/utils/placeholders';
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+.header {
+  font-family: 'Mont-Bold', sans-serif;
+
+  &__search {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin-right: 24px;
+    }
+  }
+
+  &--burger-open {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height-mobile-tablet;
+    padding: 13px 0 13px 16px;
+
+    background-color: #fff;
+    border-bottom: 1px solid $elements-color;
+
+    @include onDesktop {
+      height: $header-height-desktop;
+      padding: 18px 0 18px 24px;
+    }
+  }
+
+  &__logo {
+    @include onTablet {
+      margin-right: 32px;
+    }
+
+    @include onDesktop {
+      margin-right: 48px;
+    }
+
+    &--image {
+      width: 64px;
+      height: 22px;
+
+      @include onDesktop {
+        width: 80px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+  }
+
+  &__button {
+    position: relative;
+    border: none;
+    height: 47px;
+    width: 48px;
+    border-left: 1px solid $elements-color;
+    // border-bottom: 1px solid $elements-color;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include onDesktop {
+      height: 63px;
+      width: 64px;
+    }
+
+    &--active::after {
+      @extend %active-class;
+    }
+
+    &--burger {
+      display: flex;
+
+      background-image: url('../../assets/icons/burgerMenu.svg');
+
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @include onTablet {
+        display: none;
+      }
+
+      &_open {
+        background-image: url('../../assets/icons/Close.svg');
+      }
+    }
+
+    &--fav {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    &--cart {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+
+    // TEST AUTH START
+    &--auth {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+    }
+    // TEST AUTH END
+
+    &--image {
+      height: 16px;
+      width: 16px;
+
+      &.clicked {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

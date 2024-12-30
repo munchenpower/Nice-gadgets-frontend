@@ -1,0 +1,38 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.goBackButton {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+  padding-left: 20px;
+
+  font-family: 'Mont-Regular';
+  font-size: 16px;
+
+  color: $secondary-color;
+  text-decoration: none;
+
+  @include onTablet {
+    margin-bottom: 16px;
+  }
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+
+    background-image: url(../../assets/icons/arrow-back.svg);
+    background-size: cover;
+  }
+}

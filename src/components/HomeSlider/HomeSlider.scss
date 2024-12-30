@@ -1,0 +1,80 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.Slider {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  @include onTablet {
+    margin-inline: auto;
+    width: calc(100% - (16px + 32px) * 2);
+    height: 400px;
+  }
+
+  &__slides {
+    @include square(100%);
+    position: relative;
+  }
+
+  &__swiper {
+    @include square(100%);
+    position: absolute;
+    top: 0;
+    //right: 16px;
+    display: block;
+
+    @include onTablet {
+      position: static;
+    }
+  }
+
+  &__button {
+    display: none;
+    background-color: $white-color;
+
+    @include onTablet {
+      width: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 48px;
+      border: 1px solid var(--gray-icons-placeholders, #b4bdc3);
+      transition: border 0.3s ease-in-out;
+    }
+
+    &:hover {
+      border: 1px solid $primary-color;
+      cursor: pointer;
+
+      .arrow {
+        transform: scale(1.2); // Adjust the scale factor as needed
+      }
+    }
+  }
+
+  &__image {
+    @include square(100%);
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: transform $default-transition * 2 ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+}
+
+.img-1 {
+  @include onMobile {
+    content: url('../../assets/banner-mobile.png');
+    background-image: url('../../assets/banner-mobile.png');
+    background-size: cover;
+    background-position: center;
+  }
+}

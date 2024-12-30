@@ -1,0 +1,119 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/placeholders';
+
+.card {
+  display: flex;
+  padding: 32px;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-elements, #e2e6e9);
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    height: 293px;
+
+    @include onDesktop {
+      width: 208px;
+    }
+  }
+
+  &__photo {
+    flex-grow: 1;
+    width: 100%;
+    object-fit: contain;
+    // max-height: 130px;
+    min-height: 100px;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-family: Mont-SemiBold, sans-serif;
+    margin-bottom: 4px;
+    height: 45px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(15, 15, 17, 1);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__price {
+    margin-top: 4px;
+    display: flex;
+  }
+
+  &__price-actual {
+    text-align: left;
+    color: $primary-color;
+    @extend %h2;
+    font-size: 32px;
+    margin-bottom: 4px;
+    margin-right: 8px;
+  }
+
+  &__price-full {
+    font-weight: 400;
+    color: #89939a;
+    text-decoration: line-through;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $elements-color;
+  }
+
+  &__descriptions {
+    margin-top: 8px;
+    padding: 8px 0;
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__description-left {
+    color: #89939a;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__description-right {
+    font-family: Mont-SemiBold, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: rgba(15, 15, 17, 1);
+  }
+}
+
+@media (min-width: 768px) {
+  .card__photo {
+    max-height: 196px;
+  }
+}

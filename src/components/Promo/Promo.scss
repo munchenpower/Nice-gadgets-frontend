@@ -1,0 +1,53 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/placeholders';
+
+.Promo {
+  display: block;
+  margin-bottom: 80px;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    @extend %h1;
+    margin-bottom: 24px;
+    color: $primary-color;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+      align-self: flex-start;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
+
+.swiper-pagination {
+  display: block;
+
+  &-bullets &-bullet {
+    margin-block: 4px;
+    width: 14px;
+    height: 4px;
+    background-color: #313237;
+    border-radius: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    @include onDesktop {
+      height: 4px;
+      width: 14px;
+    }
+  }
+}
